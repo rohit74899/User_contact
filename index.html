@@ -1,0 +1,41 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>responsive form</title>
+    <link rel="stylesheet" href="new.css">
+</head>
+<body>
+    <div class="container">
+       <form onsubmit="sendEmail(); reset();return false;">
+        <h3>Get in Touch</h3>
+        <input type="text" id="name" placeholder="your name" required>
+        <input type="text" id="email" placeholder="email id" required>
+        <input type="text" id="phone" placeholder="Mobile number" required>
+        <input type="text" id="message"row="5" placeholder="how can we help you?" required>
+        <button type="submit">send</button>
+       </form>
+    </div>
+    <script src="https://smtpjs.com/v3/smtp.js"></script>
+    <script>
+        function sendEmail(){
+                Email.send({
+                Host : "smtp.elasticemail.com",
+                Username : "rohitlande002@gmail.com",
+                Password : "Rohit@2206",
+                To : 'rohitlande02@gmail.com',
+                From : document.getElementById("email").value,
+                Subject : "New contact form ",
+                Body : 
+                "Name :"+document.getElementById("name").velue +
+                 "<br> Email :"+document.getElementById("email").velue +
+                 "<br> phone no :"+document.getElementById("phone").velue +
+                 "<br> Message :"+document.getElementById("message").velue 
+            }).then(
+            message => alert("Message sent succesfully")
+            );
+        }
+    </script>
+</body>
+</html>
